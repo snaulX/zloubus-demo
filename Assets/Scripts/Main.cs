@@ -15,6 +15,17 @@ public class Main : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+}
+
+public static class objHandler
+{
+    public static Dictionary<string, GameObject> objRefs = new Dictionary<string, GameObject>();
+
+    public static void AddReference(string name, GameObject obj)
+    {
+        if (!objRefs.ContainsKey(name))
+            objRefs.Add(name, obj);
     }
 }
