@@ -7,6 +7,7 @@ public class FindServers : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        objHandler.AddReference("FindServers", gameObject);
         gameObject.GetComponent<Button>().onClick.AddListener(OnClick);
     }
 

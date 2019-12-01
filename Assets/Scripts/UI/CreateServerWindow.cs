@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SettingsMain : MonoBehaviour
+public class CreateServerWindow : MonoBehaviour
 {
 
     // Use this for initialization
     void Start()
     {
-        objHandler.AddReference("SettingsMain", gameObject);
+        objHandler.AddReference("CreateServerWindow", gameObject);
+        gameObject.SetActive(false);
     }
 
     // Update is called once per frame
