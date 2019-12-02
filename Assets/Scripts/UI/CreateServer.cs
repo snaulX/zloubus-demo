@@ -18,6 +18,7 @@ public class CreateServer : MonoBehaviour
     {
         objHandler.objRefs["CreateServerWindow"].SetActive(true);
         objHandler.objRefs["Back"].SetActive(true);
+        objHandler.objRefs["CreateOwnServer"].SetActive(true);
 
         foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Main UI"))
         {
