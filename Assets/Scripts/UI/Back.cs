@@ -21,6 +21,9 @@ public class Back : MonoBehaviour
 
     void OnClick()
     {
+        try { GetComponent<AudioSource>().Play(); }
+        catch { Debug.Log("Audio Back is excepted"); }
+
         foreach (GameObject obj in objHandler.objRefs.Values)
         {
             if (obj.CompareTag("Main UI")) obj.SetActive(true);

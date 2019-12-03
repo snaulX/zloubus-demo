@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class FindServers : MonoBehaviour
 {
@@ -21,7 +22,14 @@ public class FindServers : MonoBehaviour
     {
         objHandler.objRefs["ServersList"].SetActive(true);
         objHandler.objRefs["Back"].SetActive(true);
-        objHandler.objRefs["Connect"].SetActive(true);
+        try
+        {
+            objHandler.objRefs["Connect"].SetActive(true);
+        }
+        catch (KeyNotFoundException e)
+        {
+            Debug.Log(string.Join(" ", objHandler.objRefs.Keys));
+        }
 
         foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Main UI"))
         {

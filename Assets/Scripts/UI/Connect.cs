@@ -8,6 +8,7 @@ public class Connect : MonoBehaviour
     void Start()
     {
         objHandler.AddReference("Connect", gameObject);
+        Debug.Log(string.Join(" ", objHandler.objRefs.Keys));
         gameObject.SetActive(false);
     }
 

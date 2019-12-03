@@ -16,7 +16,6 @@ public class CreateServer : MonoBehaviour
 
     private void OnClick()
     {
-        objHandler.objRefs["CreateServerWindow"].SetActive(true);
         objHandler.objRefs["Back"].SetActive(true);
         objHandler.objRefs["CreateOwnServer"].SetActive(true);
 
