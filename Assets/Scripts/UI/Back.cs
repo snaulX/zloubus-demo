@@ -33,5 +33,7 @@ public class Back : MonoBehaviour
         {
             if (obj.CompareTag("Game UI")) obj.SetActive(false);
         }
+
+        GameObject.Find("Name").GetComponent<Text>().text = "Zloubus Demo";
     }
 }

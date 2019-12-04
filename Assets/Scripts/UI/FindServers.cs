@@ -22,6 +22,7 @@ public class FindServers : MonoBehaviour
     {
         objHandler.objRefs["ServersList"].SetActive(true);
         objHandler.objRefs["Back"].SetActive(true);
+        GameObject.Find("Name").GetComponent<Text>().text = "Find Servers";
         try
         {
             objHandler.objRefs["Connect"].SetActive(true);
