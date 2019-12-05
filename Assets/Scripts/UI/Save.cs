@@ -26,6 +26,6 @@ public class Save : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        GameObject.Find("Background").GetComponent<Main>().music_volume = GameObject.Find("NumberOfPersons").GetComponent<Slider>().value;
     }
 }
