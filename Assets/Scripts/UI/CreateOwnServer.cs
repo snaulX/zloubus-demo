@@ -1,6 +1,10 @@
-﻿using System.Collections;
+﻿#pragma warning disable CS0618 
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
+using UnityEngine.Networking.Match;
+using UnityEngine.UI;
 
 public class CreateOwnServer : MonoBehaviour
 {
@@ -8,6 +12,7 @@ public class CreateOwnServer : MonoBehaviour
     void Start()
     {
         objHandler.AddReference("CreateOwnServer", gameObject);
+        GetComponent<Button>().onClick.AddListener(OnClick);
         gameObject.SetActive(false);
     }
 
@@ -15,5 +20,11 @@ public class CreateOwnServer : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void OnClick()
+    {
+        NetworkMaster nm = GameObject.Find("NetworkMaster").GetComponent<NetworkMaster>();
+        nm.StartServer();
     }
 }
