@@ -25,6 +25,8 @@ public class CreateOwnServer : MonoBehaviour
     void OnClick()
     {
         NetworkMaster nm = GameObject.Find("NetworkMaster").GetComponent<NetworkMaster>();
+        nm.matchSize = (uint) GameObject.Find("NumberOfPersons").GetComponent<Slider>().value;
+        nm.matchName = GameObject.Find("ServerName").GetComponent<InputField>().text;
         nm.StartServer();
     }
 }

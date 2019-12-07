@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 public class NetworkMaster : NetworkManager
 {
@@ -115,5 +116,13 @@ public class NetworkMaster : NetworkManager
         connectionConfig.MaxSentMessageQueueSize = 2048;
         connectionConfig.IsAcksLong = true;
         globalConfig.ThreadAwakeTimeout = 1;
+    }
+
+    private void OnGUI()
+    {
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName(onlineScene))
+        {
+            GUI.Label(new Rect(0, 0, 100, 50), matchInfo.ToString());
+        }
     }
 }
