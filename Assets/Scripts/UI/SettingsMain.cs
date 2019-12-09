@@ -31,11 +31,7 @@ public class SettingsMain : MonoBehaviour
         Slider slider = GameObject.Find("NumberOfPersons").GetComponent<Slider>();
         slider.maxValue = 1;
         slider.minValue = 0;
-        using (BinaryReader reader = new BinaryReader(File.Open(@"settings.dat", FileMode.Open)))
-        {
-            slider.value = reader.ReadSingle();
-            reader.Close();
-        }
+        slider.value = GameObject.Find("Background").GetComponent<Main>().music_volume;
     }
 
     // Update is called once per frame
