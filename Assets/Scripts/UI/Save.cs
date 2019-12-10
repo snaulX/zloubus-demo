@@ -9,7 +9,7 @@ public class Save : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        objHandler.AddReference("SaveButton", gameObject);
+        GameObject.Find("Main").GetComponent<Main>().handler.AddReference("SaveButton", gameObject);
         GetComponent<Button>().onClick.AddListener(OnClick);
         gameObject.SetActive(false);
     }
@@ -26,6 +26,6 @@ public class Save : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GameObject.Find("Background").GetComponent<Main>().music_volume = GameObject.Find("NumberOfPersons").GetComponent<Slider>().value;
+        GameObject.Find("Main").GetComponent<Main>().music_volume = GameObject.Find("NumberOfPersons").GetComponent<Slider>().value;
     }
 }

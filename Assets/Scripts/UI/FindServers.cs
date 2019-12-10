@@ -5,10 +5,14 @@ using System.Collections.Generic;
 
 public class FindServers : MonoBehaviour
 {
+    objHandler handler
+    {
+        get => GameObject.Find("Main").GetComponent<Main>().handler;
+    }
     // Use this for initialization
     void Start()
     {
-        objHandler.AddReference("FindServers", gameObject);
+        handler.AddReference("FindServers", gameObject);
         gameObject.GetComponent<Button>().onClick.AddListener(OnClick);
     }
 
@@ -20,16 +24,16 @@ public class FindServers : MonoBehaviour
 
     void OnClick()
     {
-        objHandler.objRefs["ServersList"].SetActive(true);
-        objHandler.objRefs["Back"].SetActive(true);
+        handler.objRefs["ServersList"].SetActive(true);
+        handler.objRefs["Back"].SetActive(true);
         GameObject.Find("Name").GetComponent<Text>().text = "Find Servers";
         try
         {
-            objHandler.objRefs["Connect"].SetActive(true);
+            handler.objRefs["Connect"].SetActive(true);
         }
-        catch (KeyNotFoundException e)
+        catch (KeyNotFoundException)
         {
-            Debug.Log(string.Join(" ", objHandler.objRefs.Keys));
+            Debug.Log(string.Join(" ", handler.objRefs.Keys));
         }
 
         foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Main UI"))

@@ -7,10 +7,14 @@ using UnityEngine.UI;
 
 public class CreateServer : MonoBehaviour
 {
+    objHandler handler
+    {
+        get => GameObject.Find("Main").GetComponent<Main>().handler;
+    }
     // Start is called before the first frame update
     void Start()
     {
-        objHandler.AddReference("CreateServer", gameObject);
+        handler.AddReference("CreateServer", gameObject);
         gameObject.GetComponent<Button>().onClick.AddListener(OnClick);
     }
 
@@ -20,13 +24,13 @@ public class CreateServer : MonoBehaviour
         {
             obj.SetActive(false);
         }
-
-        objHandler.objRefs["Back"].SetActive(true);
-        objHandler.objRefs["CreateOwnServer"].SetActive(true);
-        objHandler.objRefs["ServerName"].SetActive(true);
-        objHandler.objRefs["ServerDescription"].SetActive(true);
-        objHandler.objRefs["NumbText"].SetActive(true);
-        objHandler.objRefs["NumberOfPersons"].SetActive(true);
+        
+        handler.objRefs["Back"].SetActive(true);
+        handler.objRefs["CreateOwnServer"].SetActive(true);
+        handler.objRefs["ServerName"].SetActive(true);
+        handler.objRefs["ServerDescription"].SetActive(true);
+        handler.objRefs["NumbText"].SetActive(true);
+        handler.objRefs["NumberOfPersons"].SetActive(true);
         GameObject.Find("NumberOfPersons").GetComponent<Slider>().maxValue = 30;
         GameObject.Find("NumberOfPersons").GetComponent<Slider>().minValue = 1;
         GameObject.Find("NumbText").GetComponent<Text>().text = "Number of persons on server:";
