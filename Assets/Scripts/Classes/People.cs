@@ -23,6 +23,7 @@ public class People : NetworkBehaviour
     public string Name, Surname;
     public DateTime age;
     public Estate estate;
+    public Country home;
 
     // Use this for initialization
     void Start()
