@@ -8,7 +8,7 @@ public class Quit : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        GameObject.Find("Main").GetComponent<Main>().handler.AddReference("Quit", gameObject);
+        GameObject.Find("Main").GetComponent<Main>().AddReference("Quit", gameObject);
         gameObject.GetComponent<Button>().onClick.AddListener(() => Application.Quit());
     }
 

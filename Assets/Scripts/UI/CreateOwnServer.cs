@@ -11,7 +11,7 @@ public class CreateOwnServer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject.Find("Main").GetComponent<Main>().handler.AddReference("CreateOwnServer", gameObject);
+        GameObject.Find("Main").GetComponent<Main>().AddReference("CreateOwnServer", gameObject);
         GetComponent<Button>().onClick.AddListener(OnClick);
         gameObject.SetActive(false);
     }

@@ -9,7 +9,7 @@ public class Save : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject.Find("Main").GetComponent<Main>().handler.AddReference("SaveButton", gameObject);
+        GameObject.Find("Main").GetComponent<Main>().AddReference("SaveButton", gameObject);
         GetComponent<Button>().onClick.AddListener(OnClick);
         gameObject.SetActive(false);
     }

@@ -4,9 +4,9 @@ using UnityEngine.UI;
 
 public class Back : MonoBehaviour
 {
-    objHandler handler
+    Main handler
     {
-        get => GameObject.Find("Main").GetComponent<Main>().handler;
+        get => GameObject.Find("Main").GetComponent<Main>();
     }
     // Use this for initialization
     void Start()

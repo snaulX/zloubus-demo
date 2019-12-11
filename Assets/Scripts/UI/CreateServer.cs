@@ -7,9 +7,9 @@ using UnityEngine.UI;
 
 public class CreateServer : MonoBehaviour
 {
-    objHandler handler
+    Main handler
     {
-        get => GameObject.Find("Main").GetComponent<Main>().handler;
+        get => GameObject.Find("Main").GetComponent<Main>();
     }
     // Start is called before the first frame update
     void Start()

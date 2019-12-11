@@ -5,9 +5,9 @@ using System.IO;
 
 public class SettingsMain : MonoBehaviour
 {
-    objHandler handler
+    Main handler
     {
-        get => GameObject.Find("Main").GetComponent<Main>().handler;
+        get => GameObject.Find("Main").GetComponent<Main>();
     }
     // Use this for initialization
     void Start()

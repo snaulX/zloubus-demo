@@ -7,7 +7,7 @@ public class ServersList : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        GameObject.Find("Main").GetComponent<Main>().handler.AddReference("ServersList", gameObject);
+        GameObject.Find("Main").GetComponent<Main>().AddReference("ServersList", gameObject);
         gameObject.SetActive(false);
     }
 
