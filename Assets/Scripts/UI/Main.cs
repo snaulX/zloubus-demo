@@ -20,7 +20,7 @@ public class Main : MonoBehaviour
     void Start()
     {
         Cursor.SetCursor(cursor_icon, new Vector2(), CursorMode.ForceSoftware);
-        using (BinaryReader reader = new BinaryReader(File.Open(@"settings.dat", FileMode.Open)))
+        using (BinaryReader reader = new BinaryReader(File.Open(Application.dataPath + "/settings.dat", FileMode.Open)))
         {
             music_volume = reader.ReadSingle();
             reader.Close();
@@ -33,5 +33,14 @@ public class Main : MonoBehaviour
     void Update()
     {
         GetComponent<AudioSource>().volume = music_volume;
+    }
+
+    private void Awake()
+    {
+#if UNITY_ANDROID
+        Screen.autorotateToLandscapeRight = true;
+#elif UNITY_STANDALONE
+        //pass
+#endif
     }
 }
