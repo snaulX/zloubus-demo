@@ -19,6 +19,7 @@ public class Save : MonoBehaviour
         using (BinaryWriter writer = new BinaryWriter(File.Open(Application.dataPath + "/settings.dat", FileMode.OpenOrCreate)))
         {
             writer.Write(GameObject.Find("NumberOfPersons").GetComponent<Slider>().value);
+            writer.Write(GameObject.Find("Main").GetComponent<Main>().fullscreen);
             writer.Close();
         }
     }

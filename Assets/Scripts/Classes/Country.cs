@@ -8,4 +8,5 @@ public class Country : NetworkBehaviour
 {
     public string Name;
     public Sprite flag;
+    public Dictionary<Estate, uint> taxes;
 }

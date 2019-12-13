@@ -22,6 +22,7 @@ public class SettingsMain : MonoBehaviour
         handler.objRefs["NumbText"].SetActive(true);
         handler.objRefs["NumberOfPersons"].SetActive(true);
         handler.objRefs["SaveButton"].SetActive(true);
+        handler.objRefs["Fullscreen"].SetActive(true);
         GameObject.Find("NumbText").GetComponent<Text>().text = "Music volume:";
         GameObject.Find("Name").GetComponent<Text>().text = "Settings";
 
@@ -35,6 +36,8 @@ public class SettingsMain : MonoBehaviour
         slider.maxValue = 1;
         slider.minValue = 0;
         slider.value = GameObject.Find("Main").GetComponent<Main>().music_volume;
+        Toggle toggle = GameObject.Find("Fullscreen").GetComponent<Toggle>();
+        toggle.onValueChanged.AddListener((value) => GameObject.Find("Main").GetComponent<Main>().fullscreen = value);
     }
 
     // Update is called once per frame

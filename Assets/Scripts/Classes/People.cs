@@ -24,6 +24,7 @@ public class People : NetworkBehaviour
     public DateTime age;
     public Estate estate;
     public Country home;
+    public uint money;
 
     // Use this for initialization
     void Start()

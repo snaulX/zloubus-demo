@@ -17,9 +17,7 @@ public class Building : NetworkBehaviour
     {
 #if UNITY_STANDALONE
         GUI.Label(new Rect(Input.mousePosition, new Vector2(100, 80)), Info());
-#endif
-
-#if UNITY_ANDROID
+#elif UNITY_ANDROID
         Touch touch = Input.GetTouch(0);
         if (touch.phase == TouchPhase.Began)
         {
@@ -31,7 +29,9 @@ public class Building : NetworkBehaviour
 #if UNITY_STANDALONE
     private void OnMouseDown()
     {
-        GameObject.Find("Player1").GetComponent<Player>().select = gameObject;
+        GameObject select = GameObject.Find("Player1").GetComponent<Player>().select;
+        if (select != gameObject) select = gameObject;
+        else select = null;
     }
 #endif
 

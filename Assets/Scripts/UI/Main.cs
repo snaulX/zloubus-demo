@@ -16,6 +16,7 @@ public class Main : MonoBehaviour
     [SerializeField]
     public Texture2D cursor_icon;
     public float music_volume;
+    public bool fullscreen;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,8 +24,10 @@ public class Main : MonoBehaviour
         using (BinaryReader reader = new BinaryReader(File.Open(Application.dataPath + "/settings.dat", FileMode.Open)))
         {
             music_volume = reader.ReadSingle();
+            fullscreen = reader.ReadBoolean();
             reader.Close();
         }
+        Screen.fullScreen = fullscreen;
         GetComponent<AudioSource>().volume = music_volume;
         DontDestroyOnLoad(gameObject);
     }
@@ -32,6 +35,7 @@ public class Main : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Screen.fullScreen = fullscreen;
         GetComponent<AudioSource>().volume = music_volume;
     }
 

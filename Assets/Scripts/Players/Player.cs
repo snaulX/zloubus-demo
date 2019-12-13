@@ -29,7 +29,7 @@ public class Player : NetworkBehaviour
         Touch touch = Input.GetTouch(0);
         if (touch.phase == TouchPhase.Moved)
         {
-            GetComponentInChildren<Camera>().transform.Translate(touch.deltaPosition);
+            GetComponentInChildren<Camera>().transform.Translate(touch.deltaPosition * Time.deltaTime);
         }
 #endif
     }

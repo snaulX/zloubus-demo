@@ -9,7 +9,7 @@ public class Town : NetworkBehaviour
     public Country country;
     public List<Building> buildings = new List<Building>();
     public List<People> peoples = new List<People>();
-    public int money;
+    public uint money;
     // Use this for initialization
     void Start()
     {
