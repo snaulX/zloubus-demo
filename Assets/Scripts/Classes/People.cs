@@ -25,6 +25,7 @@ public class People : NetworkBehaviour
     public Estate estate;
     public Country home;
     public uint money;
+    public sbyte mood;
 
     // Use this for initialization
     void Start()
@@ -36,5 +37,13 @@ public class People : NetworkBehaviour
     void Update()
     {
 
+    }
+
+    public People(Estate estate, Country country)
+    {
+        money = country.taxes[estate] * 5;
+        this.estate = estate;
+        home = country;
+        mood = 0;
     }
 }
