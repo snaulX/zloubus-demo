@@ -44,6 +44,6 @@ public class People : NetworkBehaviour
         money = country.taxes[estate] * 5;
         this.estate = estate;
         home = country;
-        mood = 0;
+        mood = 10;
     }
 }

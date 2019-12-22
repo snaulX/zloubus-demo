@@ -7,8 +7,8 @@ public class Town : NetworkBehaviour
 {
     public string Name;
     public Country country;
-    public List<Building> buildings = new List<Building>();
-    public List<People> peoples = new List<People>();
+    public List<Building> buildings;
+    public List<People> peoples;
     public uint money;
     // Use this for initialization
     void Start()

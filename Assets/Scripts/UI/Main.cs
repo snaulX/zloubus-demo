@@ -12,15 +12,12 @@ public class Main : MonoBehaviour
         if (!objRefs.ContainsKey(name))
             objRefs.Add(name, obj);
     }
-
-    [SerializeField]
-    public Texture2D cursor_icon;
+    
     public float music_volume;
     public bool fullscreen;
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.SetCursor(cursor_icon, new Vector2(), CursorMode.ForceSoftware);
         using (BinaryReader reader = new BinaryReader(File.Open(Application.dataPath + "/settings.dat", FileMode.Open)))
         {
             music_volume = reader.ReadSingle();

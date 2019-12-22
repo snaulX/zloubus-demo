@@ -39,13 +39,16 @@ public class KnightSquad : NetworkBehaviour
     {
 
     }
-
-#if UNITY_STANDALONE
+    
     private void OnMouseDown()
     {
         GameObject select = GameObject.Find("Player1").GetComponent<Player>().select;
         if (select != gameObject) select = gameObject;
         else select = null;
     }
-#endif
+
+    public void Move(Vector2 toPosition)
+    {
+        //pass
+    }
 }
