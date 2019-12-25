@@ -29,17 +29,21 @@ public class Player : NetworkBehaviour
     void Update()
     {
 #if UNITY_STANDALONE
-        bool select_knight = select.GetComponent<KnightSquad>() != null;
-        if (Input.GetMouseButtonDown(0))
+        try
         {
-            if (select_knight) select.GetComponent<KnightSquad>().Move(Input.mousePosition);
+            bool select_knight = select.GetComponent<KnightSquad>();
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (select_knight) select.GetComponent<KnightSquad>().Move(Input.mousePosition);
+            }
+            if (select_knight) ChangeCursor(CursorMode.MIGHT);
+            else ChangeCursor(CursorMode.DEFAULT);
         }
+        catch { }
         if (Input.GetAxis("Horizontal") > 0) GetComponentInChildren<Camera>().transform.Translate(0.2f, 0, 0);
         else if (Input.GetAxis("Horizontal") < 0) GetComponentInChildren<Camera>().transform.Translate(-0.2f, 0, 0);
         if (Input.GetAxis("Vertical") > 0) GetComponentInChildren<Camera>().transform.Translate(0, 0.2f, 0);
         else if (Input.GetAxis("Vertical") < 0) GetComponentInChildren<Camera>().transform.Translate(0, -0.2f, 0);
-        if (select_knight) ChangeCursor(CursorMode.MIGHT);
-        else ChangeCursor(CursorMode.DEFAULT);
 #elif UNITY_ANDROID
         Touch touch = Input.GetTouch(0);
         if (touch.phase == TouchPhase.Moved)
@@ -53,7 +57,8 @@ public class Player : NetworkBehaviour
     {
 #if UNITY_STANDALONE
         GUILayout.Label("Press WASD or Arrows " + Input.GetAxis("Horizontal") + " " + Input.GetAxis("Vertical"));
-        GUILayout.Box(select.name);
+        try { GUILayout.Box(select.name); }
+        catch { GUILayout.Box("Object not select"); }
 #elif UNITY_ANDROID
         GUILayout.Label("Move map " + Camera.main.transform.position);
 #endif
@@ -61,7 +66,7 @@ public class Player : NetworkBehaviour
 
     public void ChangeCursor(CursorMode mode)
     {
-        if (mode == CursorMode.MIGHT) Cursor.SetCursor(cursor_might, new Vector2(), UnityEngine.CursorMode.Auto);
-        else if (mode == CursorMode.DEFAULT) Cursor.SetCursor(cursor_might, new Vector2(), UnityEngine.CursorMode.Auto);
+        //if (mode == CursorMode.MIGHT) Cursor.SetCursor(cursor_might, new Vector2(), UnityEngine.CursorMode.Auto);
+        //else if (mode == CursorMode.DEFAULT) Cursor.SetCursor(cursor_default, new Vector2(), UnityEngine.CursorMode.Auto);
     }
 }

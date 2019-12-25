@@ -117,12 +117,4 @@ public class NetworkMaster : NetworkManager
         connectionConfig.IsAcksLong = true;
         globalConfig.ThreadAwakeTimeout = 1;
     }
-
-    private void OnGUI()
-    {
-        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName(onlineScene))
-        {
-            GUI.Label(new Rect(0, 0, 100, 50), matchInfo.ToString());
-        }
-    }
 }

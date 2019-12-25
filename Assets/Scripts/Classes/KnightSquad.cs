@@ -16,6 +16,7 @@ public class KnightSquad : NetworkBehaviour
     // Use this for initialization
     void Start()
     {
+        commander = GetComponent<People>();
         for (int i = 0; i < knights.Count; i++)
         {
             knights[i] = new People(Estate.KNIGHT, home);
@@ -39,13 +40,15 @@ public class KnightSquad : NetworkBehaviour
     {
 
     }
-    
+
+#if UNITY_STANDALONE
     private void OnMouseDown()
     {
         GameObject select = GameObject.Find("Player1").GetComponent<Player>().select;
         if (select != gameObject) select = gameObject;
         else select = null;
     }
+#endif
 
     public void Move(Vector2 toPosition)
     {

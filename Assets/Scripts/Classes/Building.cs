@@ -15,15 +15,6 @@ public class Building : NetworkBehaviour
 
     private void Update()
     {
-#if UNITY_STANDALONE
-        GUI.Label(new Rect(Input.mousePosition, new Vector2(100, 80)), Info());
-#elif UNITY_ANDROID
-        Touch touch = Input.GetTouch(0);
-        if (touch.phase == TouchPhase.Began)
-        {
-            GUI.Label(new Rect(transform.position, new Vector2(100, 80)), Info());
-        }
-#endif
     }
 
 #if UNITY_STANDALONE
@@ -39,5 +30,18 @@ public class Building : NetworkBehaviour
     {
         string info = "Master is " + master.Name + ' ' + master.Surname + '\n';
         return info;
+    }
+
+    private void OnGUI()
+    {
+#if UNITY_STANDALONE
+        GUILayout.Box("Info about clicked building " + Info());
+#elif UNITY_ANDROID
+        Touch touch = Input.GetTouch(0);
+        if (touch.phase == TouchPhase.Began)
+        {
+            GUI.Label(new Rect(transform.position, new Vector2(100, 80)), Info());
+        }
+#endif
     }
 }
